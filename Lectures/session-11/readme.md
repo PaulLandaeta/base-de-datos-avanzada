@@ -1,3 +1,5 @@
+docker network create --driver bridge my_network
+
 docker-compose up -d
 
 
