@@ -4,9 +4,9 @@ docker-compose up -d
 
 
 docker exec -it mysql-master bash
-mysql -uroot -p
+mysql -u root -p
 
-GRANT ALL ON *.* TO 'replication_user'@'%';
+GRANT ALL ON *.* TO 'replication_user'@'%' IDENTIFIED BY control123;
 
 FLUSH PRIVILEGES;
 
@@ -19,12 +19,12 @@ mysql -uroot -p
 
 
 CHANGE MASTER TO
-  MASTER_HOST='mysql_master',
+  MASTER_HOST='mysql-master',
   MASTER_USER='replication_user',
   MASTER_PASSWORD='control123',
-  MASTER_LOG_FILE='mysql-bin.000003',
-  MASTER_LOG_POS=553,
-  MASTER_PORT=4406;
+  MASTER_LOG_FILE='mysql-bin.000004',
+  MASTER_LOG_POS=1877,
+  MASTER_PORT=3306;
 
 
 START SLAVE;
