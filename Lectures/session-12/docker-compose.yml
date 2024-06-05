@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  ndb_mgmd:
+    image: mysql/mysql-cluster
+    container_name: ndb_mgmd
+    command: ndb_mgmd --initial --config-file=/etc/config.ini
+    ports:
+      - "1186:1186"
+    volumes:
+      - ./config/config.ini:/etc/config.ini
+      - ./data/mgmt:/var/lib/mysql-cluster
+    networks:
+      - mysql_cluster_network
+
+  ndbd1:
+    image: mysql/mysql-cluster
+    container_name: ndbd1
+    command: ndbd
+    ports:
+      - "2202:2202"
+    volumes:
+      - ./data/data1:/var/lib/mysql-cluster
+    networks:
+      - mysql_cluster_network
+
+  ndbd2:
+    image: mysql/mysql-cluster
+    container_name: ndbd2
+    command: ndbd
+    ports:
+      - "2203:2203"
+    volumes:
+      - ./data/data2:/var/lib/mysql-cluster
+    networks:
+      - mysql_cluster_network
+
+  mysqld:
+    image: mysql/mysql-server
+    container_name: mysqld
+    ports:
+      - "4406:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    networks:
+      - mysql_cluster_network
+    depends_on:
+      - ndb_mgmd
+      - ndbd1
+      - ndbd2
+
+networks:
+  mysql_cluster_network:
+    driver: bridge
