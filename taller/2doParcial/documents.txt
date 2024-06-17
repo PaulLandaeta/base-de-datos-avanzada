@@ -1,0 +1,40 @@
+use 'tsuki'
+Usuarios
+{
+  "_id": "1",
+  "nombre": "Tsuki",
+  "nivel": 5,
+  "ubicacion": "Granja",
+  "recursos": [{
+    "id": 1,
+    "cantidad": 30
+  }],
+  "amigos": ["2", "3"]
+}
+Eventos
+{
+  "_id": "101",
+  "titulo": "Festival de la Zanahoria",
+  "descripcion": "Un festival anual celebrado en la plaza del pueblo.",
+  "fecha": "2024-06-20",
+  "ubicacion": "Plaza"
+}
+Interacciones
+{
+  "_id": "201",
+  "usuario_id": "1",
+  "accion": "pescar",
+  "recompensa": [{
+       "id": 1
+    "cantidad": 5
+  }],
+  "fecha": "2024-06-15",
+  "event_id": "101"
+}
+
+Recursos
+{
+  "_id": "301",
+  "tipo": "zanahorias",
+  "descripcion": "Una hortaliza de raíz que se cultiva en la granja."
+}
