@@ -1,0 +1,21 @@
+id,nombre,ubicacion_id,telefono
+1,Juan Pérez,1,789456123
+2,Maria García,2,456123789
+3,Carlos López,3,123789456
+4,Lucia Martínez,4,789123456
+5,José Fernández,5,456789123
+6,Laura Gómez,6,123456789
+7,Miguel Torres,7,987654321
+8,Ana Ramírez,8,456987123
+9,Pedro Sánchez,9,789654123
+10,Rosa Díaz,10,123456987
+11,Raul Ortiz,11,789123654
+12,Sofia Morales,12,456789654
+13,David Ruiz,13,123987654
+14,Elena Herrera,14,789456987
+15,Javier Vargas,15,456123987
+16,Patricia Castro,16,123654789
+17,Antonio Mendoza,17,789987456
+18,Isabel Rojas,18,456789321
+19,Ricardo Romero,19,123654987
+20,Laura Serrano,20,789123987
